@@ -1,3 +1,4 @@
+import 'package:budget_tracker_app_ui/json/daily_json.dart';
 import 'package:budget_tracker_app_ui/json/day_month.dart';
 import 'package:budget_tracker_app_ui/theme/colors.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,7 +16,7 @@ class _DailyPageState extends State<DailyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: grey.withOpacity(0.5),
+      backgroundColor: grey.withOpacity(0.01),
       body: getBody(),
     );
   }
@@ -42,11 +43,11 @@ class _DailyPageState extends State<DailyPage> {
                       Text(
                         'Daily Transactions',
                         style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 16,
                             fontWeight: FontWeight.bold,
                             color: black),
                       ),
-                      Icon(AntDesign.search1)
+                      Icon(AntDesign.search1,size: 16,)
                     ],
                   ),
                   SizedBox(height: 20),
@@ -82,7 +83,7 @@ class _DailyPageState extends State<DailyPage> {
                                   child: Text(
                                     days[index]['day'],
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 15,
                                         color:
                                             activeDay == index ? white : black),
                                   ),
@@ -102,7 +103,35 @@ class _DailyPageState extends State<DailyPage> {
           Padding(
             padding: EdgeInsets.only(left: 20, right: 20),
             child: Column(
-              children: [],
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: (size.width - 40) * 0.7,
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              color: grey.withOpacity(0.1),
+                              shape: BoxShape.circle,
+                            ),
+                            child: Center(
+                              child: Image.asset(
+                                daily[0]['icon'],
+                                width: 30,
+                                height: 30,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ],
