@@ -47,7 +47,10 @@ class _DailyPageState extends State<DailyPage> {
                             fontWeight: FontWeight.bold,
                             color: black),
                       ),
-                      Icon(AntDesign.search1,size: 16,)
+                      Icon(
+                        AntDesign.search1,
+                        size: 16,
+                      )
                     ],
                   ),
                   SizedBox(height: 20),
@@ -66,7 +69,7 @@ class _DailyPageState extends State<DailyPage> {
                             children: [
                               Text(days[index]['label'],
                                   style: TextStyle(fontSize: 10)),
-                              SizedBox(height: 10),
+                              // SizedBox(height: 10),
                               Container(
                                 width: 30,
                                 height: 30,
@@ -103,35 +106,79 @@ class _DailyPageState extends State<DailyPage> {
           Padding(
             padding: EdgeInsets.only(left: 20, right: 20),
             child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      width: (size.width - 40) * 0.7,
-                      child: Row(
-                        children: [
-                          Container(
-                            height: 50,
-                            width: 50,
-                            decoration: BoxDecoration(
-                              color: grey.withOpacity(0.1),
-                              shape: BoxShape.circle,
-                            ),
-                            child: Center(
-                              child: Image.asset(
-                                daily[0]['icon'],
-                                width: 30,
-                                height: 30,
+              children: List.generate(daily.length, (index) {
+                return GestureDetector(
+                  onTap: () {
+                    setState(() {});
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        width: (size.width - 40) * 0.7,
+                        child: Row(
+                          children: [
+                            Container(
+                              height: 50,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                color: grey.withOpacity(0.1),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Center(
+                                child: Image.asset(
+                                  daily[index]['icon'],
+                                  width: 30,
+                                  height: 30,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                            SizedBox(width: 15),
+                            Container(
+                              width: (size.width - 90) * 0.5,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    daily[index]['name'],
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        color: black,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    daily[index]['date'],
+                                    style: TextStyle(
+                                      fontSize: 10,
+                                      color: black,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                      Container(
+                        width: (size.width - 40) * 0.3,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              daily[index]['price'],
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 10,
+                                  color: green),
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }),
             ),
           ),
         ],
