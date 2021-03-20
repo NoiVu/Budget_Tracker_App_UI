@@ -107,11 +107,9 @@ class _DailyPageState extends State<DailyPage> {
             padding: EdgeInsets.only(left: 20, right: 20),
             child: Column(
               children: List.generate(daily.length, (index) {
-                return GestureDetector(
-                  onTap: () {
-                    setState(() {});
-                  },
-                  child: Row(
+                return Column(
+                children: [
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
@@ -177,6 +175,11 @@ class _DailyPageState extends State<DailyPage> {
                       ),
                     ],
                   ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 65,top: 8 ),
+                    child: Divider(thickness: 0.8),
+                  )
+                ],
                 );
               }),
             ),
