@@ -34,7 +34,7 @@ class _DailyPageState extends State<DailyPage> {
                   blurRadius: 3)
             ]),
             child: Padding(
-              padding: EdgeInsets.fromLTRB(20, 20, 20, 25),
+              padding: EdgeInsets.fromLTRB(20, 30, 20, 25),
               child: Column(
                 children: [
                   Row(
@@ -178,12 +178,25 @@ class _DailyPageState extends State<DailyPage> {
                   Padding(
                     padding: EdgeInsets.only(left: 65,top: 8 ),
                     child: Divider(thickness: 0.8),
-                  )
+                  ),
+                  SizedBox(height: 15),
                 ],
+
                 );
-              }),
-            ),
+
+              })),
           ),
+          SizedBox(height: 15),
+          Padding(padding: EdgeInsets.only(right:20 ,left: 25,top: 2),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+            children: [
+              Text('Total',style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600),),
+              Text('\$1780.00',style: TextStyle(fontSize: 15,fontWeight: FontWeight.w300,color: green))
+            ],
+          ),
+          )
         ],
       ),
     );
