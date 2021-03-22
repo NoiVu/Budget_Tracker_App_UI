@@ -1,5 +1,6 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:budget_tracker_app_ui/pages/daily_page.dart';
+import 'package:budget_tracker_app_ui/pages/stats_page.dart';
 import 'package:budget_tracker_app_ui/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -35,10 +36,8 @@ class _RootAppState extends State<RootApp> {
     return IndexedStack(
       index: pageIndex,
       children: [
-       DailyPage(),
-        Center(
-          child: Text('Stats Page'),
-        ),
+        DailyPage(),
+        StatsPage(),
         Center(
           child: Text('Create budget Page'),
         ),
